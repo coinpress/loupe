@@ -1,0 +1,107 @@
+﻿@page
+@model loupe.Pages.BlockModel
+@{
+    ViewData["Title"] = "Block";
+}
+
+<h1>Block Information</h1>
+
+
+<div class="blockdiv">
+    <table class="table table-striped" style="table-layout: fixed">
+        <tbody>
+            <tr>
+                <th colspan="2" style="text-align:left">Block Summary</th>
+            </tr>
+            <tr>
+                <td>Block Number</td>
+                <td><a href="/Search?Search=@Model.block.Number.Value">@Model.block.Number.Value</a></td>
+            </tr>
+            <tr>
+                <td>Block Hash</td>
+                <td><a href="/Search?Search=@Model.block.BlockHash">@Model.block.BlockHash</a></td>
+            </tr>
+            <tr>
+                <td>Received Time</td>
+                <td>
+                    @Model.block.Timestamp.Value
+                </td>
+            </tr>
+            <tr>
+                <td>Difficulty</td>
+                <td>
+                    @Model.block.Difficulty.Value
+                </td>
+            </tr>
+            <tr>
+                <td>Nonce</td>
+                <td>@Model.block.Nonce</td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>@Model.block.Size.Value</td>
+            </tr>
+            <tr>
+                <td>Miner</td>
+                <td><a href="/Search?Search=@Model.block.Miner">@Model.block.Miner</a></td>
+            </tr>
+            <tr>
+                <td>Gas Limit</td>
+                <td>@Model.block.GasLimit.Value</td>
+            </tr>
+            <tr>
+                <td>Gas Used</td>
+                <td>@Model.block.GasUsed.Value</td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>@Model.block.ExtraData</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<h1>Transactions In Block</h1>
+
+<div style="margin-left: 10px; margin-right: 10px">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr style="border-color: #E1E1E1; border-width: 1px; background-color: #F9F9F9; border-top-style: solid;">
+                    <th>TxHash</th>
+                    <th class="hidden-sm">Block</th>
+                    <th>Gas</th>
+                    <th>From</th>
+                    <th></th>
+                    <th>To</th>
+                    <th>
+                        Value
+                    </th>
+                    <th>
+                        <span rel="tooltip" data-placement="bottom" title=""><font size="1" color="silver">[TxFee]</font></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var transaction in Model.block.Transactions)
+                {
+                    <tr>
+                        <td><span><a href="/Search?Search=@transaction.TransactionHash">@transaction.TransactionHash</a></span></td>
+                        <td class="hidden-sm"><a href="/Search?Search=@transaction.BlockNumber.Value">@transaction.BlockNumber.Value</a></td>
+                        <td><span rel="tooltip" data-placement="bottom"> @transaction.Gas.Value</span></td>
+                        <td><span class="address-tag"><a href="/Search?Search=@transaction.From">@transaction.From</a></span></td>
+                        <td> ➡</td>
+                        <td><span style="white-space: nowrap;"><i class="fa fa-file-text-o" rel="tooltip" data-placement="bottom"></i> <span><a href="/Search?Search=@transaction.To">@transaction.To</a></span></span></td>
+                        <td>@(transaction.Value.Value / 1000000000)</td>
+                        <td><font size="1" color="gray">0<b>.</b>@(transaction.GasPrice.Value * transaction.Gas.Value)</font></td>
+                    </tr>
+                }
+
+            </tbody>
+            </table>
+        </div>
+    </div>

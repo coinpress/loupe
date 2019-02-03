@@ -1,0 +1,22 @@
+﻿@page
+@model loupe.Pages.AddressModel
+@{
+    ViewData["Title"] = "Address";
+}
+
+<h2>Address</h2>
+
+<div class="blockdiv">
+    <table class="table table-striped" style="table-layout: fixed">
+        <tbody>
+            <tr>
+                <th colspan="2" style="text-align:left">Transaction @Model.Account</th>
+            </tr>
+            <tr>
+                <td>Balance</td>
+                <td>@Model.AccountBalance</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>

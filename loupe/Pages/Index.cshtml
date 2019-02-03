@@ -1,0 +1,89 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    The ASP.NET Blockchain Explorer
+                    <a class="btn btn-default" href="https://blog.coinpress.cc/2019/02/02/loupe-the-open-source-c-asp-net-core-blockchain-explorer/">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+            <!--</div>
+        <div class="item">
+            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>-->
+        </div>
+
+        <div class="row">
+             <div class="col-md-3">
+        <h2>About</h2>
+        <ul>
+            <li>Made in C# using ASP.NET Core Razor Pages</li>
+            <li>Open Source</li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Features</h2>
+        <ul>
+            <li>Access up-to-date information about your coin.</li>
+            <li>Look up transactions by hash or block number.</li>
+            <li>Detailed transaction information.</li>
+            <li>Find balances of addresses.</li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Documentation</h2>
+        <ul>
+            <li><a href="https://blog.coinpress.cc/2019/02/02/loupe-the-open-source-c-asp-net-core-blockchain-explorer/">Introducing Loupe</a></li>
+            <li><a href="https://blog.coinpress.cc/documentation/">CoinPress.cc documentation</a></li>
+        </ul>
+    </div>
+
+             <div class="col-md-3">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://github.com/coinpress/Loupe">Source code on Github</a></li>
+        </ul>
+    </div>
+        </div>

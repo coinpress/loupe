@@ -1,0 +1,39 @@
+﻿@page
+@model loupe.Pages.Last50Model
+@{
+    ViewData["Title"] = "Last50";
+}
+
+<h2>Last 50</h2>
+
+<div style="margin-left: 10px; margin-right: 10px">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr style="border-color: #E1E1E1; border-width: 1px; background-color: #F9F9F9; border-top-style: solid;">
+                    <th>Height</th>
+                    <th>Timestamp</th>
+                    <th>txn</th>
+                    <th>Uncles</th>
+                    <th>Miner</th>
+                    <th>Gas Used</th>
+                    <th>Gas Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var block in Model.BlockList)
+                {
+                <tr>
+                    <td><a href="/Search?Search=@block.Number.Value">@block.Number.Value</a></td>
+                    <td><span rel="tooltip" data-placement="bottom"> @block.Timestamp.Value</span></td>
+                    <td><a href="/Search?Search=@block.Number.Value">@block.TransactionHashes.Count()</a></td>
+                    <td>@block.Uncles.Length</td>
+                    <td><a href="/Search?Search=@block.Author">@block.Author</a></td>
+                    <td>@block.GasUsed.Value</td>
+                    <td>@block.GasLimit.Value</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

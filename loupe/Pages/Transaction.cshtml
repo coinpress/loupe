@@ -1,0 +1,50 @@
+﻿@page
+@model loupe.Pages.TransactionModel
+@{
+    ViewData["Title"] = "Transaction";
+}
+
+<h2>Transaction</h2>
+
+    <div class="blockdiv">
+    <table class="table table-striped" style="table-layout: fixed">
+        <tbody>
+            <tr>
+                <th colspan="2" style="text-align:left">Transaction @Model.Transaction.BlockNumber.Value</th>
+            </tr>
+            <tr>
+                <td>Transaction Hash</td>
+                <td><a href="/Search?Search=@Model.Transaction.TransactionHash">@Model.Transaction.TransactionHash</a></td>
+            </tr>
+            <tr>
+                <td>Block Hash</td>
+                <td><a href="/Search?Search=@Model.Transaction.BlockHash">@Model.Transaction.BlockHash</a></td>
+            </tr>
+            <tr>
+                <td>From</td>
+                <td><a href="/Search?Search=@Model.Transaction.From">@Model.Transaction.From</a></td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td><a href="/Search?Search=@Model.Transaction.To">@Model.Transaction.To</a></td>
+            </tr>
+            <tr>
+                <td>Gas</td>
+                <td>@Model.Transaction.Gas.Value</td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>@Model.Transaction.Value.Value</td>
+            </tr>
+            <tr>
+                <td>Nonce</td>
+                <td>@Model.Transaction.Nonce.Value</td>
+            </tr>
+            <tr>
+                <td>Input</td>
+                <td><input class="form-control" type="text" placeholder="@Model.Transaction.Input"> </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>
